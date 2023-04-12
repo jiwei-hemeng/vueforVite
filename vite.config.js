@@ -16,7 +16,7 @@ export default ({ mode }) => {
           {
             name: "vue",
             var: "Vue",
-            path: "https://unpkg.com/vue@3.2.31"
+            path: "https://unpkg.com/vue@3.2.47/dist/vue.global.js"
           },
           {
             name: "vue-demi",
