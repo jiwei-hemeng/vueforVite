@@ -14,13 +14,12 @@ function developChange() {
 }
 function leftAnimationend() {
   isDevelop.value = !isDevelop.value;
-  reftDom.value.classList.remove("sideLeftOut");
-  reftDom.value.classList.remove("sideLeftIn");
-
   if (isDevelop.value) {
     reftDom.value.style.display = "none";
+    reftDom.value.classList.remove("sideLeftOut");
   } else {
     reftDom.value.style.display = "block";
+    reftDom.value.classList.remove("sideLeftIn");
   }
 }
 </script>
