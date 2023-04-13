@@ -47,7 +47,6 @@ function leftAnimationend() {
 }
 .right {
   flex: 1;
-  width: calc(100% - 470px);
   background-color: green;
 }
 .sidebar {
