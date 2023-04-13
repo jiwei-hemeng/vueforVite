@@ -8,6 +8,7 @@ import importToCDN from "vite-plugin-cdn-import";
 export default ({ mode }) => {
   console.log("mode", mode);
   return {
+    base: "./",
     plugins: [
       vue(),
       visualizer({ open: true }),
