@@ -2,17 +2,14 @@
 import { ref, nextTick } from "vue";
 let isDevelop = ref(false);
 let reftDom = ref(null);
-let rightDom = ref(null);
 function developChange() {
   if (isDevelop.value) {
     reftDom.value.style.display = "block";
-    rightDom.value.classList.add("sideRightIn");
     nextTick(() => {
       reftDom.value.classList.add("sideLeftIn");
     });
   } else {
     reftDom.value.classList.add("sideLeftOut");
-    rightDom.value.classList.add("sideRightOut");
   }
 }
 function leftAnimationend() {
@@ -26,15 +23,6 @@ function leftAnimationend() {
     reftDom.value.style.display = "block";
   }
 }
-function rightAnimationend() {
-  rightDom.value.classList.remove("sideRightOut");
-  rightDom.value.classList.remove("sideRightIn");
-  if (isDevelop.value) {
-    rightDom.value.style.width = "calc(100% - 20px)";
-  } else {
-    rightDom.value.style.width = "calc(100% - 470px)";
-  }
-}
 </script>
 <template>
   <div class="contain">
@@ -42,7 +30,7 @@ function rightAnimationend() {
     <div class="mid sidebar" @click="developChange">
       {{ isDevelop ? "⬆️点击展开⬆️" : "⬇️点击收起⬇️" }}
     </div>
-    <div class="right" ref="rightDom" @animationend="rightAnimationend">right</div>
+    <div class="right">right</div>
   </div>
 </template>
 <style scoped>
@@ -51,15 +39,16 @@ function rightAnimationend() {
 }
 .left {
   width: 450px;
-  background-color: aquamarine;
+  background-color: skyblue;
 }
 .mid {
   width: 20px;
   height: 600px;
 }
 .right {
+  flex: 1;
   width: calc(100% - 470px);
-  background-color: cadetblue;
+  background-color: green;
 }
 .sidebar {
   text-align: center;
@@ -73,12 +62,6 @@ function rightAnimationend() {
   animation: sideLeftIn 0.5s;
 }
 
-.sideRightIn {
-  animation: sideRight 0.7s ease;
-}
-.sideRightOut {
-  animation: sideRight 0.7s reverse;
-}
 @keyframes sideLeftOut {
   0% {
     width: 450px;
@@ -93,14 +76,6 @@ function rightAnimationend() {
   }
   100% {
     width: 450px;
-  }
-}
-@keyframes sideRight {
-  0% {
-    width: calc(100% - 20px);
-  }
-  100% {
-    width: calc(100% - 470px);
   }
 }
 </style>

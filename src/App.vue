@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <nav>
-      <RouterLink class="nav_link" to="/">Home</RouterLink>
+      <RouterLink class="nav_link" to="/">首页</RouterLink>
       <RouterLink class="nav_link" to="/about">About</RouterLink>
       <RouterLink class="nav_link" to="/KeyFrames">KeyFrames</RouterLink>
     </nav>
