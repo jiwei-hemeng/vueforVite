@@ -42,6 +42,18 @@ export default ({ mode }) => {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url))
       }
+    },
+    server: {
+      proxy: {
+        "/api": {
+          target: "http://localhost:5000",
+          changeOrigin: true,
+          rewrite: (path) => {
+            console.log("1111", path)
+            return path.replace(/^\/api/, "")
+          }
+        }
+      }
     }
   };
 };
