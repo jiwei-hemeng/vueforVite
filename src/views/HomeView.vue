@@ -3,12 +3,12 @@
 // @ts-nocheck
 import { useRouter } from "vue-router";
 import MenuLsit from "@/components/menuList.vue";
-const res = await fetch("/api/db/getFullColumns?tableName=b_reportcard_element_setting");
-const resp = await res.json()
-console.log("相应结果", resp)
+const res = await fetch("/api/index/recommend.json");
+const resp = await res.json();
+console.log("相应结果", resp);
 const router = useRouter();
 function changePage(path) {
-  router.push(path)
+  router.push(path);
 }
 </script>
 <template>

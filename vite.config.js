@@ -46,12 +46,9 @@ export default ({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: "http://localhost:5000",
+          target: "https://www.bilibili.com",
           changeOrigin: true,
-          rewrite: (path) => {
-            console.log("1111", path)
-            return path.replace(/^\/api/, "")
-          }
+          rewrite: (path) => path.replace(/^\/api/, "")
         }
       }
     }
