@@ -3,7 +3,8 @@
 // @ts-nocheck
 import { useRouter } from "vue-router";
 import MenuLsit from "@/components/menuList.vue";
-const res = await fetch("/api/index/recommend.json");
+const baseUrl = import.meta.env.VITE_BASE_URL;
+const res = await fetch(baseUrl + "/index/recommend.json");
 const resp = await res.json();
 console.log("相应结果", resp);
 const router = useRouter();
