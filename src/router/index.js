@@ -19,7 +19,7 @@ const router = createRouter({
           path: "/KeyFrames",
           name: "KeyFrames",
           component: () => import("@/views/Key-frames.vue"),
-          meta: { requiresAuth: false }
+          meta: { requiresAuth: true }
         },
 
         {
