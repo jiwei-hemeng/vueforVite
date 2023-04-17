@@ -13,6 +13,7 @@ import Loadding from "@/components/Loadding.vue";
                 <RouterLink class="nav_link" to="/">首页</RouterLink>
                 <RouterLink class="nav_link" to="/about">About</RouterLink>
                 <RouterLink class="nav_link" to="/KeyFrames">KeyFrames</RouterLink>
+                <RouterLink class="nav_link" to="/authRouter">AuthRouter</RouterLink>
               </nav>
               <main>
                 <component :is="Component"></component>
