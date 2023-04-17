@@ -6,21 +6,28 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "Home",
-      component: () => import("@/views/HomeView.vue"),
-      meta: { requiresAuth: false }
-    },
-    {
-      path: "/about",
-      name: "About",
-      component: () => import("@/views/AboutView.vue"),
-      meta: { requiresAuth: false }
-    },
-    {
-      path: "/KeyFrames",
-      name: "KeyFrames",
-      component: () => import("@/views/Key-frames.vue"),
-      meta: { requiresAuth: false }
+      component: () => import("@/views/index.vue"),
+      children: [
+        {
+          path: "/",
+          name: "Home",
+          component: () => import("@/views/HomeView.vue"),
+          meta: { requiresAuth: false }
+        },
+        {
+          path: "/KeyFrames",
+          name: "KeyFrames",
+          component: () => import("@/views/Key-frames.vue"),
+          meta: { requiresAuth: false }
+        },
+
+        {
+          path: "/about",
+          name: "About",
+          component: () => import("@/views/AboutView.vue"),
+          meta: { requiresAuth: false }
+        }
+      ]
     },
     {
       path: "/authRouter",
