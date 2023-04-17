@@ -9,7 +9,6 @@ function setToken() {
 </script>
 <template>
   <div class="about">
-    <h1>AboutView 页</h1>
     <div>token:{{ store.token }}</div>
     <button @click="setToken">设置token</button>
   </div>
