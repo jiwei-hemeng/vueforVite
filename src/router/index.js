@@ -8,8 +8,9 @@ const router = createRouter({
       path: "/",
       component: () => import("@/views/index.vue"),
       children: [
+        { path: "/", redirect: "/home" },
         {
-          path: "/",
+          path: "/home",
           name: "Home",
           component: () => import("@/views/HomeView.vue"),
           meta: { requiresAuth: false }
