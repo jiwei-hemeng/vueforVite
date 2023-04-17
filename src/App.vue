@@ -8,11 +8,7 @@ import Loadding from "@/components/Loadding.vue";
       <transition mode="nested">
         <suspense>
           <template #default>
-            
-              
-                <component :is="Component"></component>
-              
-            
+            <component :is="Component"></component>
           </template>
           <template #fallback>
             <Loadding />
