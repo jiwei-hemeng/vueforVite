@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { createRouter, createWebHashHistory } from "vue-router";
-// import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
+import { useToken } from "@/stores/counter";
+import pinia from "@/stores/store";
+const store = useToken(pinia);
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -52,8 +54,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  const token = sessionStorage.getItem("token");
-  if (to.meta.requiresAuth && !token) {
+  if (to.meta.requiresAuth && !store.token) {
     console.log("没有访问权限");
     alert("没有访问权限");
     return false;

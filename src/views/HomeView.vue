@@ -1,12 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 // @ts-nocheck
+import requet from "@/utils";
 import { useRouter } from "vue-router";
 import MenuLsit from "@/components/menuList.vue";
-const baseUrl = import.meta.env.VITE_BASE_URL;
-const res = await fetch(baseUrl + "/index/recommend.json");
-const resp = await res.json();
-console.log("相应结果", resp);
+const res = await requet({ url: "/index/recommend.json" });
+console.log("相应结果", res);
 const router = useRouter();
 function changePage(path) {
   router.push(path);
