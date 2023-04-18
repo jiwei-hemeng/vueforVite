@@ -6,7 +6,6 @@ const props = defineProps({
     required: true
   }
 });
-console.log(props)
 const emit = defineEmits(["changePage"]);
 function changePage(item) {
   emit("changePage", item.path);
