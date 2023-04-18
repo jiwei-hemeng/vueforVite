@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { createRouter, createWebHashHistory } from "vue-router";
-import { useToken } from "@/stores/counter";
-import pinia from "@/stores/store";
+import { useToken } from "@/stores/useInfo";
+import pinia from "@/stores";
 const store = useToken(pinia);
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

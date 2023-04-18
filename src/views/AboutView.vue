@@ -1,6 +1,6 @@
 <script setup>
 // @ts-ignore
-import { useToken } from "@/stores/counter";
+import { useToken } from "@/stores/useInfo";
 // 可以在组件中的任意位置访问 `store` 变量 ✨
 const store = useToken();
 function setToken() {
