@@ -25,11 +25,15 @@ function leftAnimationend() {
 </script>
 <template>
   <div class="contain">
-    <div class="left" ref="reftDom" @animationend="leftAnimationend">left</div>
+    <div class="left" ref="reftDom" @animationend="leftAnimationend">
+      <p class="left-contain">左侧内容左侧内容左侧内容左侧内容左侧内容左侧内容左侧内容左侧内容左侧内容左侧内容左侧内容</p>
+    </div>
     <div class="mid sidebar" @click="developChange">
       {{ isDevelop ? "⬆️点击展开⬆️" : "⬇️点击收起⬇️" }}
     </div>
-    <div class="right">right</div>
+    <div class="right">
+      <p>右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容右侧内容</p>
+    </div>
   </div>
 </template>
 <style scoped>
@@ -39,6 +43,11 @@ function leftAnimationend() {
 .left {
   width: 450px;
   background-color: skyblue;
+  overflow: hidden;
+}
+.left .left-contain {
+  width: 450px;
+  word-break: break-all;
 }
 .mid {
   width: 20px;
