@@ -16,20 +16,20 @@ const router = createRouter({
           path: "/home",
           name: "Home",
           component: () => import("@/views/HomeView.vue"),
-          meta: { requiresAuth: false }
+          meta: { requiresAuth: false, title: "首页" }
         },
         {
           path: "/KeyFrames",
           name: "KeyFrames",
           component: () => import("@/views/Key-frames.vue"),
-          meta: { requiresAuth: true }
+          meta: { requiresAuth: true, title: "动画效果" }
         },
 
         {
           path: "/about",
           name: "About",
           component: () => import("@/views/AboutView.vue"),
-          meta: { requiresAuth: false }
+          meta: { requiresAuth: false, title: "全局状态" }
         }
       ]
     },
@@ -37,7 +37,13 @@ const router = createRouter({
       path: "/authRouter",
       name: "AuthRoute",
       component: () => import("@/views/AuthRouter.vue"),
-      meta: { requiresAuth: true, savedPosition: true }
+      meta: { requiresAuth: true, savedPosition: true, title: "鉴权路由" }
+    },
+    {
+      path: "/:pathMatch(.*)",
+      name: "NotFound404",
+      component: () => import("@/views/NotFound404.vue"),
+      meta: { requiresAuth: false, savedPosition: false, title: "404" }
     }
   ],
   scrollBehavior: (to, from, savedPosition) => {
@@ -54,6 +60,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
+  document.title = to.meta.title
   if (to.meta.requiresAuth && !store.token) {
     console.log("没有访问权限");
     alert("没有访问权限");
