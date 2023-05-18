@@ -6,9 +6,8 @@ import { visualizer } from "rollup-plugin-visualizer";
 import importToCDN from "vite-plugin-cdn-import";
 
 export default ({ mode }) => {
-  console.log("mode", mode);
   return {
-    base: "./",
+    base: mode === "production" ? "/vueforVite/":"./",
     plugins: [
       vue(),
       visualizer({ open: true }),
