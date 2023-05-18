@@ -60,8 +60,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  document.title = to.meta.title
-  if (to.meta.requiresAuth && !store.token) {
+  document.title = to.meta.title;
+  if (to.meta.requiresAuth && !store.isLogin) {
     console.log("没有访问权限");
     alert("没有访问权限");
     return false;
