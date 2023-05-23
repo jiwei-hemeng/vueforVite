@@ -1,1 +1,0 @@
-import{u as o}from"./index-7e45735a.js";const n={class:"about"},a={__name:"AboutView",setup(u){const e=o();function t(){e.setToken(Date.now())}return(s,c)=>(Vue.openBlock(),Vue.createElementBlock("div",n,[Vue.createElementVNode("div",null,"token:"+Vue.toDisplayString(Vue.unref(e).token),1),Vue.createElementVNode("button",{onClick:t},"设置token")]))}};export{a as default};

@@ -1,0 +1,1 @@
+import{_ as e}from"./index-cdd053c8.js";const t={},_={class:"auth"};function c(o,s){return Vue.openBlock(),Vue.createElementBlock("div",_,"鉴权路由")}const r=e(t,[["render",c],["__scopeId","data-v-813c8e66"]]);export{r as default};
