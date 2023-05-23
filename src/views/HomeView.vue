@@ -4,9 +4,14 @@
 import requet from "@/utils";
 import { useRouter } from "vue-router";
 import MenuLsit from "@/components/menuList.vue";
-const res = await requet({ url: "/index/recommend.json" });
-console.log("相应结果", res);
 const router = useRouter();
+try {
+  const res = await requet({ url: "/index/recommend.json" });
+  console.log("相应结果", res);
+} catch (error) {
+  console.log(error);
+}
+
 function changePage(path) {
   router.push(path);
 }
