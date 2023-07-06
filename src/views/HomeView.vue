@@ -1,11 +1,13 @@
-<!-- eslint-disable vue/multi-word-component-names -->
-<script setup>
-// @ts-nocheck
+<script setup name="HomeView">
+// @ts-ignore
 import requet from "@/utils";
 import { useRouter } from "vue-router";
+// @ts-ignore
 import MenuLsit from "@/components/menuList.vue";
+// @ts-ignore
 const router = useRouter();
 try {
+  // @ts-ignore
   const res = await requet({ url: "/index/recommend.json" });
   console.log("相应结果", res);
 } catch (error) {
@@ -15,6 +17,7 @@ try {
 function changePage(path) {
   router.push(path);
 }
+// @ts-ignore
 </script>
 <template>
   <div>
