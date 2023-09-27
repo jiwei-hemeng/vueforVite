@@ -8,7 +8,8 @@ import MenuLsit from "@/components/menuList.vue";
 const router = useRouter();
 try {
   // @ts-ignore
-  const res = await requet({ url: "/index/recommend.json" });
+  // const res = await requet({ url: "/index/recommend.json" });
+  const res = await requet({ url: "/license/info" });
   console.log("相应结果", res);
 } catch (error) {
   console.log(error);

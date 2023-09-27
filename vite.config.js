@@ -45,7 +45,8 @@ export default ({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: "https://www.bilibili.com",
+          // target: "https://www.bilibili.com",
+          target: "http://10.10.10.252:8002",
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, "")
         }
