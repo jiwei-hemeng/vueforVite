@@ -35,7 +35,7 @@ const router = createRouter({
           path: "/eventEmitter",
           name: "EventEmitter",
           component: () => import("@/views/EventEmitter/index.vue"),
-          meta: { requiresAuth: false, title: "全局状态" }
+          meta: { requiresAuth: false, title: "发布订阅者模式" }
         }
       ]
     },
