@@ -6,6 +6,7 @@
       <RouterLink class="nav_link" to="/about">About</RouterLink>
       <RouterLink class="nav_link" to="/KeyFrames">KeyFrames</RouterLink>
       <RouterLink class="nav_link" to="/authRouter">AuthRouter</RouterLink>
+      <RouterLink class="nav_link" to="/eventEmitter">EventEmitter</RouterLink>
     </nav>
     <main>
       <router-view />

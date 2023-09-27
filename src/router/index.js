@@ -30,6 +30,12 @@ const router = createRouter({
           name: "About",
           component: () => import("@/views/AboutView.vue"),
           meta: { requiresAuth: false, title: "全局状态" }
+        },
+        {
+          path: "/eventEmitter",
+          name: "EventEmitter",
+          component: () => import("@/views/EventEmitter/index.vue"),
+          meta: { requiresAuth: false, title: "全局状态" }
         }
       ]
     },
