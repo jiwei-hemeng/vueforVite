@@ -9,6 +9,8 @@
     "deploy": "sh ./deploy.sh"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "ant-design-vue": "4.x",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
