@@ -7,6 +7,7 @@
       <RouterLink class="nav_link" to="/KeyFrames">KeyFrames</RouterLink>
       <RouterLink class="nav_link" to="/authRouter">AuthRouter</RouterLink>
       <RouterLink class="nav_link" to="/eventEmitter">EventEmitter</RouterLink>
+      <RouterLink class="nav_link" to="/map">百度地图</RouterLink>
     </nav>
     <main>
       <router-view />

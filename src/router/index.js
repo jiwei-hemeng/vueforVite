@@ -36,7 +36,13 @@ const router = createRouter({
           name: "EventEmitter",
           component: () => import("@/views/EventEmitter/index.vue"),
           meta: { requiresAuth: false, title: "发布订阅者模式" }
-        }
+        },
+        {
+          path: "/map",
+          name: "百度地图",
+          component: () => import("@/views/Map/index.vue"),
+          meta: { requiresAuth: true, title: "百度地图" }
+        },
       ]
     },
     {
@@ -69,8 +75,8 @@ router.beforeEach((to) => {
   document.title = to.meta.title;
   if (to.meta.requiresAuth && !store.isLogin) {
     console.log("没有访问权限");
-    alert("没有访问权限");
-    return false;
+    // 去授权页面
+    return { name: 'About' };
   }
 });
 

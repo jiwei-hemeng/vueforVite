@@ -7,7 +7,7 @@ import importToCDN from "vite-plugin-cdn-import";
 
 export default ({ mode }) => {
   return {
-    base: mode === "production" ? "/vueforVite/" : "./",
+    base: mode === "production" ? "./" : "./",
     plugins: [
       vue(),
       visualizer({ open: true }),
