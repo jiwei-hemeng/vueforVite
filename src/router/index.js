@@ -43,6 +43,12 @@ const router = createRouter({
           component: () => import("@/views/Map/index.vue"),
           meta: { requiresAuth: true, title: "百度地图" }
         },
+        {
+          path: "/chinaMap",
+          name: "中国地图",
+          component: () => import("@/views/chinaMap/index.vue"),
+          meta: { requiresAuth: true, title: "中国地图" }
+        },
       ]
     },
     {

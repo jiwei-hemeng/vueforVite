@@ -8,6 +8,7 @@
       <RouterLink class="nav_link" to="/authRouter">AuthRouter</RouterLink>
       <RouterLink class="nav_link" to="/eventEmitter">EventEmitter</RouterLink>
       <RouterLink class="nav_link" to="/map">百度地图</RouterLink>
+      <RouterLink class="nav_link" to="/chinaMap">中国地图</RouterLink>
     </nav>
     <main>
       <router-view />
