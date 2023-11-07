@@ -32,7 +32,12 @@ export default ({ mode }) => {
             name: "pinia",
             var: "Pinia",
             path: "https://unpkg.com/pinia@2.0.34/dist/pinia.iife.js"
-          }
+          },
+          {
+            name: "echarts",
+            var: "echarts",
+            path: "https://unpkg.com/echarts@5.4.3/dist/echarts.js"
+          },
         ]
       })
     ],

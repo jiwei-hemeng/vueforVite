@@ -2,6 +2,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import { useToken } from "@/stores/useInfo";
 import pinia from "@/stores";
+import { Modal } from 'ant-design-vue';
 const store = useToken(pinia);
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -81,6 +82,10 @@ router.beforeEach((to) => {
   document.title = to.meta.title;
   if (to.meta.requiresAuth && !store.isLogin) {
     console.log("没有访问权限");
+    Modal.error({
+      title: '提示',
+      content: '没有访问权限...',
+    });
     // 去授权页面
     return { name: 'About' };
   }

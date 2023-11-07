@@ -5,8 +5,9 @@
 <script setup>
 import { onMounted } from "vue";
 import * as echarts from "echarts";
-import chinaJson from "@/utils/china.json";
-onMounted(() => {
+onMounted(async () => {
+  const res = await fetch("/assets/map/china.json");
+  const chinaJson = await res.text();
   const myChart = echarts.init(document.getElementById("chinaMap"));
   echarts.registerMap("china", chinaJson); //注册可用的地图
   var option = {
@@ -28,7 +29,7 @@ onMounted(() => {
         normal: {
           areaColor: "#f00",
           borderColor: "#090438",
-          borderWidth: "2",
+          borderWidth: "1",
           shadowColor: "#090438",
           shadowOffsetX: 0,
           shadowOffsetY: 0
@@ -45,7 +46,7 @@ onMounted(() => {
         }
       },
       // 显示层级
-      z: 30,
+      z: 10,
       tooltip: {
         trigger: "item",
         formatter: "{b}<br/>{c} (p / km2)"
