@@ -22,38 +22,14 @@ function getIndexDB(dbName = "myDB") {
       // 成功处理
       db = event.target.result;
       createStore(db);
-      resolve({
-        db, //数据库对象
-        cursorGetDataByIndexAndPage,
-        getDataByIndex, // 通过索引查找
-        removeDataByIndex, // 通过索引删除
-        getIndexDB, // 初始化数据库连接
-        save, // 插入记录
-        update, // 更新记录
-        saveOrUpdate, // 新增或更新
-        read, // 查询
-        readAll, // 查询指定表下的所有
-        remove
-      });
+      resolve();
     };
 
     // 通过 监听[数据库升级事件]拿到 数据库实例
     request.onupgradeneeded = function (event) {
       db = event.target.result;
       createStore(db);
-      resolve({
-        db, //数据库对象
-        cursorGetDataByIndexAndPage,
-        getDataByIndex, // 通过索引查找
-        removeDataByIndex, // 通过索引删除
-        getIndexDB, // 初始化数据库连接
-        save, // 插入记录
-        update, // 更新记录
-        saveOrUpdate, // 新增或更新
-        read, // 查询
-        readAll, // 查询指定表下的所有
-        remove
-      });
+      resolve();
     };
   });
 }
