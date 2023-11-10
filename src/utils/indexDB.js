@@ -12,10 +12,9 @@ const createStore = (db) => {
   }
 };
 function getIndexDB(dbName = "myDB") {
-  // 使用 IndexedDB 的第一步是打开数据库
-  const request = window.indexedDB.open(dbName);
-
   return new Promise((resolve, reject) => {
+    // 使用 IndexedDB 的第一步是打开数据库
+    const request = window.indexedDB.open(dbName);
     request.onerror = function (event) {
       reject(event);
     };
@@ -29,10 +28,10 @@ function getIndexDB(dbName = "myDB") {
         getDataByIndex, // 通过索引查找
         removeDataByIndex, // 通过索引删除
         getIndexDB, // 初始化数据库连接
-        save, // 插入记录（参数不传，默认为myDb库下global表中的 id为global的记录）
-        update, // 更新记录（参数不传，默认为myDb库下global表中的 id为global的记录）
+        save, // 插入记录
+        update, // 更新记录
         saveOrUpdate, // 新增或更新
-        read, // 查询（参数不传，默认为myDb库下global表中的 id为global的记录）
+        read, // 查询
         readAll, // 查询指定表下的所有
         remove
       });
@@ -48,10 +47,10 @@ function getIndexDB(dbName = "myDB") {
         getDataByIndex, // 通过索引查找
         removeDataByIndex, // 通过索引删除
         getIndexDB, // 初始化数据库连接
-        save, // 插入记录（参数不传，默认为myDb库下global表中的 id为global的记录）
-        update, // 更新记录（参数不传，默认为myDb库下global表中的 id为global的记录）
+        save, // 插入记录
+        update, // 更新记录
         saveOrUpdate, // 新增或更新
-        read, // 查询（参数不传，默认为myDb库下global表中的 id为global的记录）
+        read, // 查询
         readAll, // 查询指定表下的所有
         remove
       });
@@ -61,8 +60,8 @@ function getIndexDB(dbName = "myDB") {
 
 // 增
 function save(data, tableName = "tableName") {
-  const request = db.transaction([tableName], "readwrite").objectStore(tableName).add(data);
   return new Promise((resolve, reject) => {
+    const request = db.transaction([tableName], "readwrite").objectStore(tableName).add(data);
     request.onsuccess = function (event) {
       console.log("数据写入成功");
       resolve(event);
@@ -75,18 +74,21 @@ function save(data, tableName = "tableName") {
 }
 
 // 删
-function remove(id = "global", tableName = "tableName") {
-  const request = db.transaction([tableName], "readwrite").objectStore(tableName).delete(id);
-
+function remove(id, tableName = "tableName") {
   return new Promise((resolve, reject) => {
-    request.onsuccess = function () {
-      console.log("数据删除成功");
-      resolve(true);
-    };
-    request.onerror = function (event) {
-      console.log("数据删除失败");
-      reject(event);
-    };
+    if (id) {
+      const request = db.transaction([tableName], "readwrite").objectStore(tableName).delete(id);
+      request.onsuccess = function () {
+        console.log("数据删除成功");
+        resolve(true);
+      };
+      request.onerror = function (event) {
+        console.log("数据删除失败");
+        reject(event);
+      };
+    } else {
+      reject("主键不能为空");
+    }
   });
 }
 
