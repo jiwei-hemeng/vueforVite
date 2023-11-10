@@ -1,16 +1,16 @@
 // @ts-nocheck
 let db = null;
-const createStore = (db) => {
+function createStore(db) {
   if (!db.objectStoreNames.contains("tableName")) {
     const routersStore = db.createObjectStore("tableName", {
-      keyPath: "id",
-      autoIncrement: true
+      keyPath: "id",  // 设置主键
+      autoIncrement: true, // 设置主键自增加
     });
     routersStore.createIndex("name", "name", { unique: false });
     routersStore.createIndex("path", "path", { unique: false });
     routersStore.createIndex("moduleType", "moduleType", { unique: false });
   }
-};
+}
 function getIndexDB(dbName = "myDB") {
   return new Promise((resolve, reject) => {
     // 使用 IndexedDB 的第一步是打开数据库
@@ -109,7 +109,7 @@ function update(data, tableName = "tableName") {
   });
 }
 
-// 新增或改（没有则插入，有则更新--必须包含主键，没有的话id默认为global）
+// 新增或改
 async function saveOrUpdate(data, tableName = "tableName") {
   !data.id && (data.id = "global");
   const res = await read(data.id);
@@ -141,7 +141,7 @@ function read(id = "global", tableName = "tableName") {
     };
   });
 }
-
+// 通过索引查询
 function getDataByIndex(indexName, indexValue, storeName = "tableName") {
   return new Promise((resolve, reject) => {
     const transaction = db.transaction([storeName], "readonly");
@@ -158,7 +158,7 @@ function getDataByIndex(indexName, indexValue, storeName = "tableName") {
     };
   });
 }
-
+// 通过索引删除
 function removeDataByIndex(indexName, indexValue, storeName = "tableName") {
   return new Promise((resolve, reject) => {
     const transaction = db.transaction([storeName], "readwrite");
@@ -185,7 +185,7 @@ function removeDataByIndex(indexName, indexValue, storeName = "tableName") {
 }
 
 // 查询所有(创建一个游标，类似JAVA里面的容器遍历的iterator()就是一个性能，估计发明IndexDB的作者可能的认真学过JAVA，这里纯属虚构，忽略，忽略...... )
-const readAll = (tableName = "tableName") => {
+function readAll(tableName = "tableName") {
   return new Promise((resolve) => {
     const objectStore = db.transaction(tableName).objectStore(tableName);
     const result = [];
@@ -203,8 +203,8 @@ const readAll = (tableName = "tableName") => {
       }
     };
   });
-};
-
+}
+// 游标分页
 function cursorGetDataByIndexAndPage(
   indexName,
   indexValue,
