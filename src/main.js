@@ -7,7 +7,7 @@ import router from "@/router";
 import IndexDB from "@/utils/indexDB.js";
 import "@/assets/main.css";
 IndexDB.getIndexDB().then(() => {
-  debugger;
+  console.log("222")
   debugger;
   const app = createApp(App);
   app.use(pinia);
