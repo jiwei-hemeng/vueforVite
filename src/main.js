@@ -8,7 +8,7 @@ import IndexDB from "@/utils/indexDB.js";
 import "@/assets/main.css";
 IndexDB.getIndexDB().then(() => {
   console.log("22244466666664333")
-    const app = createApp(App);
+  const app = createApp(App);
   app.use(pinia);
   app.use(router);
   app.mount("#app");
