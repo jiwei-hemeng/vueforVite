@@ -1,6 +1,6 @@
 {
   "name": "viteforvue",
-  "version": "0.99.99",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
