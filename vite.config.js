@@ -4,11 +4,12 @@ import vue from "@vitejs/plugin-vue";
 // 插件
 import { visualizer } from "rollup-plugin-visualizer";
 import importToCDN from "vite-plugin-cdn-import";
-
+import VueDevTools from 'vite-plugin-vue-devtools'
 export default ({ mode }) => {
   return {
     base: mode === "production" ? "./" : "./",
     plugins: [
+      VueDevTools(),
       vue(),
       visualizer({ open: true }),
       importToCDN({
