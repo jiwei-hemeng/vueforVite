@@ -17,27 +17,27 @@ export default ({ mode }) => {
           {
             name: "vue",
             var: "Vue",
-            path: "https://unpkg.com/vue@3.4.12/dist/vue.global.js"
+            path: "https://cdn.bootcdn.net/ajax/libs/vue/3.4.12/vue.global.min.js"
           },
           {
             name: "vue-demi",
             var: "VueDemi",
-            path: "https://unpkg.com/vue-demi@0.14.6/lib/index.iife.js"
+            path: "https://cdn.bootcdn.net/ajax/libs/vue-demi/0.14.6/index.iife.min.js"
           },
           {
             name: "vue-router",
             var: "VueRouter",
-            path: "https://unpkg.com/vue-router@4.2.5/dist/vue-router.global.js"
+            path: "https://cdn.bootcdn.net/ajax/libs/vue-router/4.2.5/vue-router.global.min.js"
           },
           {
             name: "pinia",
             var: "Pinia",
-            path: "https://unpkg.com/pinia@2.1.7/dist/pinia.iife.js"
+            path: "https://cdn.bootcdn.net/ajax/libs/pinia/2.1.6/pinia.iife.min.js"
           },
           {
             name: "echarts",
             var: "echarts",
-            path: "https://unpkg.com/echarts@5.4.3/dist/echarts.js"
+            path: "https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"
           },
         ]
       })
