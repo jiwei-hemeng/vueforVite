@@ -9,6 +9,7 @@
       <RouterLink class="nav_link" to="/eventEmitter">EventEmitter</RouterLink>
       <RouterLink class="nav_link" to="/map">百度地图</RouterLink>
       <RouterLink class="nav_link" to="/chinaMap">中国地图</RouterLink>
+      <RouterLink class="nav_link" to="/webCamera">拍照功能</RouterLink>
     </nav>
     <main>
       <router-view />

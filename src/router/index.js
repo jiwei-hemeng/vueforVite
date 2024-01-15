@@ -50,6 +50,12 @@ const router = createRouter({
           component: () => import("@/views/chinaMap/index.vue"),
           meta: { requiresAuth: true, title: "中国地图" }
         },
+        {
+          path: "/webCamera",
+          name: "网络摄像头",
+          component: () => import("@/views/camera/index.vue"),
+          meta: { requiresAuth: false, title: "拍照" }
+        },
       ]
     },
     {
