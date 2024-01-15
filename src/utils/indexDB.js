@@ -3,8 +3,8 @@ let db = null;
 function createStore(db) {
   if (!db.objectStoreNames.contains("tableName")) {
     const routersStore = db.createObjectStore("tableName", {
-      keyPath: "id",  // 设置主键
-      autoIncrement: true, // 设置主键自增加
+      keyPath: "id", // 设置主键
+      autoIncrement: true // 设置主键自增加
     });
     routersStore.createIndex("name", "name", { unique: false });
     routersStore.createIndex("path", "path", { unique: false });
@@ -199,6 +199,9 @@ function cursorGetDataByIndexAndPage(
       .openCursor(IDBKeyRange.only(indexValue)); // 指针对象
     request.onsuccess = function (e) {
       let cursor = e.target.result;
+      if (!cursor) {
+        return resolve(list);
+      }
       if (page > 1 && advanced) {
         advanced = false;
         cursor.advance((page - 1) * pageSize); // 跳过多少条

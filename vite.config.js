@@ -17,22 +17,22 @@ export default ({ mode }) => {
           {
             name: "vue",
             var: "Vue",
-            path: "https://unpkg.com/vue@3.2.47/dist/vue.global.js"
+            path: "https://unpkg.com/vue@3.4.12/dist/vue.global.js"
           },
           {
             name: "vue-demi",
             var: "VueDemi",
-            path: "https://unpkg.com/vue-demi@0.13.11/lib/index.iife.js"
+            path: "https://unpkg.com/vue-demi@0.14.6/lib/index.iife.js"
           },
           {
             name: "vue-router",
             var: "VueRouter",
-            path: "https://unpkg.com/vue-router@4.1.6/dist/vue-router.global.js"
+            path: "https://unpkg.com/vue-router@4.2.5/dist/vue-router.global.js"
           },
           {
             name: "pinia",
             var: "Pinia",
-            path: "https://unpkg.com/pinia@2.0.34/dist/pinia.iife.js"
+            path: "https://unpkg.com/pinia@2.1.7/dist/pinia.iife.js"
           },
           {
             name: "echarts",
