@@ -2,7 +2,13 @@
   <div>
     <Abutton type="primary" @click="selectFileBtn">选择图片</Abutton>
     <input accept="image/*" ref="selectFile" v-show="false" type="file" @change="fileChange" />
-    <Modal v-model:open="open" title="编辑图片" @ok="handleOk" :afterClose="afterClose">
+    <Modal
+      v-model:open="open"
+      title="编辑图片"
+      @ok="handleOk"
+      :afterClose="afterClose"
+      :maskClosable="false"
+    >
       <div class="preview-image-warp">
         <img class="preview-image" :src="blobUrl" alt="" ref="preview" />
       </div>
@@ -47,17 +53,20 @@ async function fileChange(e) {
 }
 function getCroppedBlob() {
   return new Promise((resolve) => {
-    cropper.value.getCroppedCanvas().toBlob(resolve);
+    resolve(cropper.value.getCroppedCanvas().toDataURL())
   });
 }
 function afterClose() {
   cropper.value.destroy();
   cropper.value = null;
+  URL.revokeObjectURL(blobUrl.value);
+  selectFile.value.value = ""
 }
 async function handleOk() {
   open.value = false;
   const blobUrl = await getCroppedBlob();
   console.log(blobUrl);
+  // window.open(blobUrl)
 }
 </script>
 <style scoped>
