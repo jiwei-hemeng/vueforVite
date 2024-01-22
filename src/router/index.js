@@ -2,7 +2,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import { useToken } from "@/stores/useInfo";
 import pinia from "@/stores";
-import { Modal } from 'ant-design-vue';
+import { Modal } from "ant-design-vue";
 const store = useToken(pinia);
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -55,7 +55,7 @@ const router = createRouter({
           name: "网络摄像头",
           component: () => import("@/views/camera/index.vue"),
           meta: { requiresAuth: false, title: "拍照" }
-        },
+        }
       ]
     },
     {
@@ -69,6 +69,12 @@ const router = createRouter({
       name: "NotFound404",
       component: () => import("@/views/NotFound404.vue"),
       meta: { requiresAuth: false, savedPosition: false, title: "404" }
+    },
+    {
+      path: "/cropperjs",
+      name: "cropperjs",
+      component: () => import("@/views/cropperjs/index.vue"),
+      meta: { requiresAuth: false, savedPosition: false, title: "图片裁剪" }
     }
   ],
   scrollBehavior: (to, from, savedPosition) => {
@@ -89,11 +95,11 @@ router.beforeEach((to) => {
   if (to.meta.requiresAuth && !store.isLogin) {
     console.log("没有访问权限");
     Modal.error({
-      title: '提示',
-      content: '没有访问权限...',
+      title: "提示",
+      content: "没有访问权限..."
     });
     // 去授权页面
-    return { name: 'About' };
+    return { name: "About" };
   }
 });
 
