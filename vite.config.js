@@ -6,12 +6,9 @@ import { visualizer } from "rollup-plugin-visualizer";
 import importToCDN from "vite-plugin-cdn-import";
 import VueDevTools from "vite-plugin-vue-devtools";
 export default ({ mode }) => {
-  return {
-    base: mode === "production" ? "./" : "./",
-    plugins: [
-      VueDevTools(),
-      vue(),
-      visualizer({ open: true }),
+  const plugins = [VueDevTools(), vue(), visualizer({ open: true })];
+  if (mode === "production") {
+    plugins.push(
       importToCDN({
         modules: [
           {
@@ -41,7 +38,11 @@ export default ({ mode }) => {
           }
         ]
       })
-    ],
+    );
+  }
+  return {
+    base: mode === "production" ? "./" : "./",
+    plugins,
 
     resolve: {
       alias: {
