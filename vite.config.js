@@ -4,7 +4,7 @@ import vue from "@vitejs/plugin-vue";
 // 插件
 import { visualizer } from "rollup-plugin-visualizer";
 import importToCDN from "vite-plugin-cdn-import";
-import VueDevTools from 'vite-plugin-vue-devtools'
+import VueDevTools from "vite-plugin-vue-devtools";
 export default ({ mode }) => {
   return {
     base: mode === "production" ? "./" : "./",
@@ -38,14 +38,14 @@ export default ({ mode }) => {
             name: "echarts",
             var: "echarts",
             path: "https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"
-          },
+          }
         ]
       })
     ],
 
     resolve: {
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "@": fileURLToPath(new URL("./src", import.meta.url))
       }
     },
     server: {
@@ -55,6 +55,29 @@ export default ({ mode }) => {
           target: "http://10.10.10.252:8002",
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, "")
+        }
+      }
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            "group-home": [
+              "./src/views/index.vue",
+              "./src/views/HomeView.vue",
+              "./src/views/AuthRouter.vue",
+              "./src/views/NotFound404.vue",
+              "./src/views/cropperjs/index.vue"
+            ],
+            "group-demo": [
+              "./src/views/Key-frames.vue",
+              "./src/views/AboutView.vue",
+              "./src/views/EventEmitter/index.vue",
+              "./src/views/Map/index.vue",
+              "./src/views/chinaMap/index.vue",
+              "./src/views/camera/index.vue"
+            ]
+          }
         }
       }
     }

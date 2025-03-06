@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
-    "ant-design-vue": "~4.1.0",
+    "ant-design-vue": "^4.2.6",
     "cropperjs": "^1.6.1",
     "dayjs": "^1.11.10",
     "echarts": "^5.4.3",

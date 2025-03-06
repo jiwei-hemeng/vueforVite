@@ -4,7 +4,7 @@
   </div>
 </template>
 <script setup>
-import { reactive, toRef } from "vue";
+import { reactive, toRef, toRefs } from "vue";
 const state = reactive({
   foo: 1,
   bar: 2
@@ -17,11 +17,13 @@ console.log(state.foo); // 2
 // 更改源属性也会更新该 ref
 state.foo++;
 console.log(fooRef.value); // 3
-// const { foo } = toRefs(state);
-// foo.value++;
-// console.log("toRefs", foo.value); // 2
-// foo.value++;
-// console.log("reactiveState", state.foo); // 3
+const { bar } = toRefs(state);
+
+console.log("-------------test toRefs-----------------")
+bar.value++;
+console.log(state.bar);
+state.bar++;
+console.log(bar.value)
 </script>
 <style scoped>
 .auth {
