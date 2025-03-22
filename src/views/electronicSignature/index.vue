@@ -14,10 +14,12 @@
   <div class="controls">
     <button @click="clearCanvas">清除</button>
     <button @click="saveCanvas">保存签名</button>
+    <button @click="changeAge">useWatchFields</button>
   </div>
 </template>
 
 <script setup>
+import { useWatchFields } from "@/utils/useWatchFields";
 import { ref, onMounted, defineOptions } from "vue";
 import { fancyConsole } from "@/utils/fancy-console.js";
 defineOptions({
@@ -61,15 +63,11 @@ function clearCanvas() {
   ctx.value.clearRect(0, 0, canvasWidth.value, canvasHeight.value);
 }
 function saveCanvas() {
-  fancyConsole.info("系统加载完毕，准备起飞~");
-  fancyConsole.warn("内存占用超过80%，该清缓存了！");
-  fancyConsole.error("服务器炸了！快跑啊！");
-  return;
-  // const dataURL = canvas.value.toDataURL("image/png");
-  // const link = document.createElement("a");
-  // link.href = dataURL;
-  // link.download = "signature.png";
-  // link.click();
+  const dataURL = canvas.value.toDataURL("image/png");
+  const link = document.createElement("a");
+  link.href = dataURL;
+  link.download = "signature.png";
+  link.click();
 }
 function getCanvasCoordinates(event) {
   const rect = canvas.value.getBoundingClientRect();
@@ -80,6 +78,24 @@ function getCanvasCoordinates(event) {
     x: clientX - rect.left,
     y: clientY - rect.top
   };
+}
+// 假设你的 state 包含多个字段
+const state = ref({
+  name: "John Doe",
+  age: 30,
+  email: "john@example.com"
+});
+
+// 监听 name 和 age 字段的变化
+const { onChange } = useWatchFields(state, ["name", "age"]);
+
+// 注册事件监听器，获取字段变化信息
+onChange((data) => {
+  fancyConsole.warn("变化字段:", data.changedFields);
+  fancyConsole.info("字段变化前后值:", data.fieldChangeMap);
+});
+function changeAge() {
+  state.value.age += 1;
 }
 </script>
 
