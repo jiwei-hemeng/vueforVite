@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref, onMounted, defineOptions } from "vue";
-
+import { fancyConsole } from "@/utils/fancy-console.js";
 defineOptions({
   inheritAttrs: false,
   name: "ElectronicSignature"
@@ -61,11 +61,15 @@ function clearCanvas() {
   ctx.value.clearRect(0, 0, canvasWidth.value, canvasHeight.value);
 }
 function saveCanvas() {
-  const dataURL = canvas.value.toDataURL("image/png");
-  const link = document.createElement("a");
-  link.href = dataURL;
-  link.download = "signature.png";
-  link.click();
+  fancyConsole.info("系统加载完毕，准备起飞~");
+  fancyConsole.warn("内存占用超过80%，该清缓存了！");
+  fancyConsole.error("服务器炸了！快跑啊！");
+  return;
+  // const dataURL = canvas.value.toDataURL("image/png");
+  // const link = document.createElement("a");
+  // link.href = dataURL;
+  // link.download = "signature.png";
+  // link.click();
 }
 function getCanvasCoordinates(event) {
   const rect = canvas.value.getBoundingClientRect();
