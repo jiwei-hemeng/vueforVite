@@ -40,21 +40,27 @@ const router = createRouter({
         },
         {
           path: "/map",
-          name: "百度地图",
+          name: "Map",
           component: () => import("@/views/Map/index.vue"),
           meta: { requiresAuth: true, title: "百度地图" }
         },
         {
           path: "/chinaMap",
-          name: "中国地图",
+          name: "chinaMap",
           component: () => import("@/views/chinaMap/index.vue"),
           meta: { requiresAuth: true, title: "中国地图" }
         },
         {
           path: "/webCamera",
-          name: "网络摄像头",
+          name: "webCamera",
           component: () => import("@/views/camera/index.vue"),
           meta: { requiresAuth: false, title: "拍照" }
+        },
+        {
+          path: "/electronicSignature",
+          name: "electronicSignature",
+          component: () => import("@/views/electronicSignature/index.vue"),
+          meta: { requiresAuth: false, title: "电子签名" }
         }
       ]
     },
