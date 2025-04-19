@@ -61,6 +61,12 @@ const router = createRouter({
           name: "electronicSignature",
           component: () => import("@/views/electronicSignature/index.vue"),
           meta: { requiresAuth: false, title: "电子签名" }
+        },
+        {
+          path: "/pageEcharts",
+          name: "pageEcharts",
+          component: () => import("@/views/pageEcharts/index.vue"),
+          meta: { requiresAuth: false, title: "分页图表" }
         }
       ]
     },
