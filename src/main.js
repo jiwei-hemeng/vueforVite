@@ -8,7 +8,8 @@ import IndexDB from "@/utils/indexDB.js";
 import "@/assets/main.css";
 IndexDB.getIndexDB().then(() => {
   const app = createApp(App);
+  app.config.performance = true; // 开启性能模式
   app.use(pinia);
   app.use(router);
-  app.mount("#app");
+  app.mount("#app", true);
 });
